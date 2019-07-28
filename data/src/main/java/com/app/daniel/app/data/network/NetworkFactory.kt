@@ -5,7 +5,9 @@ import android.net.ConnectivityManager
 import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import okhttp3.Cache
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 import retrofit2.Retrofit
@@ -18,6 +20,7 @@ class NetworkFactory : INetworkFactory, KoinComponent {
 
     private val cacheLimitSize = (8 * 1024 * 1024).toLong()
     private val applicationCache = Cache(context.cacheDir, cacheLimitSize)
+    private val interceptor : Interceptor =   HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
 
     override fun webService(baseUrl: String): Retrofit {
         return Retrofit.Builder()
@@ -31,6 +34,7 @@ class NetworkFactory : INetworkFactory, KoinComponent {
     override fun getOkHttpClient(): OkHttpClient {
         return OkHttpClient().newBuilder()
             .cache(applicationCache)
+            .addInterceptor(interceptor)
             .addInterceptor { chain ->
                 var request = chain.request()
                 request = when {
@@ -45,7 +49,8 @@ class NetworkFactory : INetworkFactory, KoinComponent {
                     }
                 }
                 chain.proceed(request)
-            }.connectTimeout(2, TimeUnit.MINUTES)
+            }
+            .connectTimeout(2, TimeUnit.MINUTES)
             .writeTimeout(4, TimeUnit.MINUTES)
             .readTimeout(4, TimeUnit.MINUTES)
             .retryOnConnectionFailure(false)

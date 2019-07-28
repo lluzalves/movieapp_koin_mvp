@@ -20,62 +20,62 @@ data class MovieEntity(
 
     @SerializedName(TITLE)
     @ColumnInfo(name = TITLE)
-    var title: String,
+    var title: String?,
 
     @SerializedName(ORIGINAL_TITLE)
     @ColumnInfo(name = ORIGINAL_TITLE)
-    var originalTitle: String,
+    var originalTitle: String?,
 
     @SerializedName(ORIGINAL_LANGUAGE)
     @ColumnInfo(name = ORIGINAL_LANGUAGE)
-    var originalLanguage: String,
+    var originalLanguage: String?,
 
     @SerializedName(OVERVIEW)
     @ColumnInfo(name = OVERVIEW)
-    var overview: String,
+    var overview: String?,
 
     @SerializedName(POSTER_PATH)
     @ColumnInfo(name = POSTER_PATH)
-    var posterPath: String,
+    var posterPath: String?,
 
     @SerializedName(HOMEPAGE)
     @ColumnInfo(name = HOMEPAGE)
-    var homePage: String,
+    var homePage: String?,
 
     @SerializedName(PRODUCTION_COUNTRIES)
     @TypeConverters(CountryConverter::class)
-    var countries: List<CountryEntity>,
+    var countries: List<CountryEntity>?,
 
     @SerializedName(PRODUCTION_COMPANIES)
     @TypeConverters(CompanyConverter::class)
-    var companyEntities: List<CompanyEntity>,
+    var companyEntities: List<CompanyEntity>?,
 
     @SerializedName(VOTE_AVG)
     @ColumnInfo(name = VOTE_AVG)
-    var voteAverage: Double,
+    var voteAverage: Double?,
 
     @SerializedName(VOTE_COUNT)
     @ColumnInfo(name = VOTE_COUNT)
-    var voteCount: Int,
+    var voteCount: Int?,
 
     @SerializedName(RELEASE_DATE)
     @ColumnInfo(name = RELEASE_DATE)
-    var releaseDate: String,
+    var releaseDate: String?,
 
     @SerializedName(RUNTIME)
     @ColumnInfo(name = RUNTIME)
-    var runtime: String,
+    var runtime: String?,
 
     @SerializedName(SPOKEN_LANG)
     @TypeConverters(LanguageConverter::class)
-    var languages: List<LanguageEntity>,
+    var languages: List<LanguageEntity>?,
 
     @SerializedName(GENRE_IDS)
     @TypeConverters(IntConverter::class)
-    var genres: List<Int>,
+    var genres: List<Int>?,
 
     @SerializedName(STATUS)
-    var status: Boolean
+    var status: Boolean?
 ) {
 
     companion object {

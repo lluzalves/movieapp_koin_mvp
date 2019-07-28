@@ -8,7 +8,7 @@ interface MoviesContract {
 
     interface MoviesView : BaseMovieView {
         fun onLayoutItemsChangeOrientation()
-        fun getMovies(movies: List<Movie>)
+        fun getMovies(fetchedMovies: List<Movie>)
     }
 
     interface MoviePresenter : MvpPresenter<MoviesView> {

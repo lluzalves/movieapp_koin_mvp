@@ -18,10 +18,11 @@ class MoviePresenter constructor(override val view: MoviesContract.MoviesView) :
                 .subscribeBy(
                     onSuccess = {movies ->
                         view.getMovies(movies)
-                        view.onCompleted()
+                        view.onCompleteState()
                     },
                     onError = {error ->
                         view.onError(error.localizedMessage)
+                        view.onErrorState()
                     }
                 )
             )

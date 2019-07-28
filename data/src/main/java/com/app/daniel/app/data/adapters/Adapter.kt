@@ -29,21 +29,21 @@ object MovieAdapter {
         runtime = movieEntity.runtime
     )
 
-    private fun getCompanies(companyEntities: List<CompanyEntity>): List<Company> {
+    private fun getCompanies(companyEntities: List<CompanyEntity>?): List<Company>? {
         val companies = ArrayList<Company>()
-        companyEntities.mapTo(destination = companies) { companyList -> CompanyAdapter.toCompany(companyList) }
+        companyEntities?.mapTo(destination = companies) { companyList -> CompanyAdapter.toCompany(companyList) }
         return companies
     }
 
-    private fun getCountry(countryEntities: List<CountryEntity>): List<Country> {
+    private fun getCountry(countryEntities: List<CountryEntity>?): List<Country>? {
         val countries = ArrayList<Country>()
-        countryEntities.mapTo(destination = countries) { companyList -> CountryAdapter.toCountry(companyList) }
+        countryEntities?.mapTo(destination = countries) { companyList -> CountryAdapter.toCountry(companyList) }
         return countries
     }
 
-    private fun getLanguages(languageEntity: List<LanguageEntity>): List<Language> {
+    private fun getLanguages(languageEntity: List<LanguageEntity>?): List<Language>? {
         val languages = ArrayList<Language>()
-        languageEntity.mapTo(destination = languages) { languageList -> LanguageAdapter.toLanguage(languageList) }
+        languageEntity?.mapTo(destination = languages) { languageList -> LanguageAdapter.toLanguage(languageList) }
         return languages
     }
 

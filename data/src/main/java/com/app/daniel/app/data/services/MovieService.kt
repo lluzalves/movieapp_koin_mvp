@@ -25,7 +25,7 @@ interface MovieService {
         @Query(API_KEY) api_key: String
     ): Single<MovieEntity>
 
-    @GET("$POPULAR_MOVIES/{$REQUESTED_PAGE}")
-    fun popularMovies(@Query(API_KEY) api_key: String,@Path(REQUESTED_PAGE) page:Int): Single<MovieResponse>
+    @GET(POPULAR_MOVIES)
+    fun popularMovies(@QueryMap options: Map<String, String>): Single<MovieResponse>
 
 }

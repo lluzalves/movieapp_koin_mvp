@@ -3,6 +3,7 @@ package com.app.daniel.app.data.repository
 import com.app.daniel.app.commons.Constants
 import com.app.daniel.app.commons.applyScheduler
 import com.app.daniel.app.data.adapters.MovieAdapter
+import com.app.daniel.app.data.services.MovieApiUrls
 import com.app.daniel.app.data.services.MovieService
 import com.app.daniel.app.domain.dto.Movie
 import com.app.daniel.app.domain.repository.MoviesRepository
@@ -18,7 +19,7 @@ class MovieRepositoryImpl : MoviesRepository, KoinComponent {
 
     override fun fetchPopularMovies(requestedEndpointPage: Int): Single<List<Movie>> {
         return movieService
-            .popularMovies(Constants.MovieApi.CLIENT_TOKEN,page = requestedEndpointPage)
+            .popularMovies(MovieApiUrls.Urls.buildPopularMovieRequestUrl(page = requestedEndpointPage))
             .applyScheduler()
             .map { response ->
                 val movies = ArrayList<Movie>()

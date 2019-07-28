@@ -31,6 +31,14 @@ class MovieApiUrls {
             return data
         }
 
+        fun buildPopularMovieRequestUrl(page: Int): Map<String, String> {
+            val data: LinkedHashMap<String, String> = LinkedHashMap()
+            data[API_KEY] = Constants.MovieApi.CLIENT_TOKEN
+            data[REQUESTED_PAGE] = page.toString()
+            data[INCLUDE_ADULT_CONTENT] = false.toString()
+            return data
+        }
+
         const val UPCOMING_MOVIES = API_VERSION.plus(SEARCH).plus(MOVIE)
         const val MOVIE_DETAILS = Constants.MovieApi.API_VERSION.plus(MOVIE).plus(MOVIE_ID)
         const val POPULAR_MOVIES = Constants.MovieApi.API_VERSION.plus(MOVIE).plus(POPULAR)
