@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MovieApp</string>
+    <string name="please_wait">Please wait</string>
+    <string name="unable_to_detect_connectivity">Unable to detect connectivity</string>
+    <string name="lets_explore">Let\'s find new movies</string>
+    <string name="fetching_data">Fetching movies data</string>
+</resources>
