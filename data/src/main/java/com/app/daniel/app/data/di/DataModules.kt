@@ -1,4 +1,4 @@
-package com.app.daniel.app.data.di.modules
+package com.app.daniel.app.data.di
 
 import androidx.room.Room
 import com.app.daniel.app.commons.Constants

@@ -4,8 +4,8 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
-@Entity(tableName = Company.ENTITY_NAME)
-data class Company(
+@Entity(tableName = CompanyEntity.ENTITY_NAME)
+data class CompanyEntity(
     @SerializedName(DESCRIPTION)
     val description: String,
     @SerializedName(HQ)

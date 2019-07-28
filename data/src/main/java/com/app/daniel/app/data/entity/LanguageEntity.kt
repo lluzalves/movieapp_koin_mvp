@@ -6,11 +6,11 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
-@Entity(tableName = Language.ENTITY_NAME)
-data class Language(
+@Entity(tableName = LanguageEntity.ENTITY_NAME)
+data class LanguageEntity(
     @PrimaryKey
     @NonNull
-    @ColumnInfo(name = Country.ID)
+    @ColumnInfo(name = CountryEntity.ID)
     var id: Long = System.currentTimeMillis(),
 
     @SerializedName(ISO)

@@ -4,15 +4,13 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
 
-abstract class BaseFragment : Fragment(), MvpView {
+abstract class BaseFragment<P : MvpPresenter<*>> : Fragment(), MvpView {
+
+    abstract val presenter: P
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         retainInstance = true
-    }
-
-    override fun onLoading(loadingMessage: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun onCompleted() {

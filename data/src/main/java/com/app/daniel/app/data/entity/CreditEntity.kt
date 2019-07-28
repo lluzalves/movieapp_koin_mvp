@@ -4,8 +4,8 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
-@Entity(tableName = Credit.ENTITY_NAME)
-data class Credit(
+@Entity(tableName = CreditEntity.ENTITY_NAME)
+data class CreditEntity(
     @PrimaryKey
     @SerializedName(ID)
     var id : Int,

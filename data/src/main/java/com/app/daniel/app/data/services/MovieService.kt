@@ -3,6 +3,7 @@ package com.app.daniel.app.data.services
 import com.app.daniel.app.data.entity.MovieEntity
 import com.app.daniel.app.data.services.MovieApiUrls.Params.API_KEY
 import com.app.daniel.app.data.services.MovieApiUrls.Params.MOVIE_ID
+import com.app.daniel.app.data.services.MovieApiUrls.Params.REQUESTED_PAGE
 import com.app.daniel.app.data.services.MovieApiUrls.Urls.MOVIE_DETAILS
 import com.app.daniel.app.data.services.MovieApiUrls.Urls.POPULAR_MOVIES
 import com.app.daniel.app.data.services.MovieApiUrls.Urls.UPCOMING_MOVIES
@@ -24,7 +25,7 @@ interface MovieService {
         @Query(API_KEY) api_key: String
     ): Single<MovieEntity>
 
-    @GET(POPULAR_MOVIES)
-    fun popularMovies(@Query(API_KEY) api_key: String): Single<MovieResponse>
+    @GET("$POPULAR_MOVIES/{$REQUESTED_PAGE}")
+    fun popularMovies(@Query(API_KEY) api_key: String,@Path(REQUESTED_PAGE) page:Int): Single<MovieResponse>
 
 }

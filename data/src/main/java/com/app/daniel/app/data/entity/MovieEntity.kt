@@ -44,11 +44,11 @@ data class MovieEntity(
 
     @SerializedName(PRODUCTION_COUNTRIES)
     @TypeConverters(CountryConverter::class)
-    var countries: List<Country>,
+    var countries: List<CountryEntity>,
 
     @SerializedName(PRODUCTION_COMPANIES)
     @TypeConverters(CompanyConverter::class)
-    var companies: List<Company>,
+    var companyEntities: List<CompanyEntity>,
 
     @SerializedName(VOTE_AVG)
     @ColumnInfo(name = VOTE_AVG)
@@ -68,7 +68,7 @@ data class MovieEntity(
 
     @SerializedName(SPOKEN_LANG)
     @TypeConverters(LanguageConverter::class)
-    var languages: List<Language>,
+    var languages: List<LanguageEntity>,
 
     @SerializedName(GENRE_IDS)
     @TypeConverters(IntConverter::class)

@@ -9,17 +9,15 @@ import com.app.daniel.app.movieapp.MainActivity
 import com.app.daniel.app.movieapp.R
 import com.app.daniel.app.movieapp.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_splash.*
-import org.koin.android.ext.android.inject
-import org.koin.core.parameter.parametersOf
-
 
 class SplashActivity : BaseActivity(), SplashContract.SplashView {
 
     private lateinit var animation: AnimationDrawable
-    private val presenter: SplashContract.SplashPresenter by inject { parametersOf(this) }
+    // private val presenter: SplashContract.SplashPresenter by inject { parametersOf(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportActionBar?.hide()
         setContentView(R.layout.activity_splash)
         onStartView()
     }
@@ -43,8 +41,7 @@ class SplashActivity : BaseActivity(), SplashContract.SplashView {
                 when {
                     animation.current !== animation.getFrame(animation.numberOfFrames - 1) -> this@SplashActivity.startAnimation()
                     else -> {
-                        state_info.text = getString(R.string.fetching_data)
-                        presenter.fetchData()
+                        onCompleted()
                     }
                 }
             }, 50)
@@ -56,10 +53,6 @@ class SplashActivity : BaseActivity(), SplashContract.SplashView {
         val intent = Intent(this@SplashActivity, MainActivity::class.java)
         startActivity(intent)
         finish()
-    }
-
-    override fun onLoading(loadingMessage: String) {
-        Toast.makeText(this, loadingMessage, Toast.LENGTH_SHORT).show()
     }
 
     override fun onError(errorMessage: String) {

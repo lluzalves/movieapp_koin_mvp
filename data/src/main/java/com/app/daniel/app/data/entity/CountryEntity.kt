@@ -6,8 +6,8 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
-@Entity(tableName = Country.ENTITY_NAME)
-data class Country(
+@Entity(tableName = CountryEntity.ENTITY_NAME)
+data class CountryEntity(
     @PrimaryKey
     @NonNull
     @ColumnInfo(name = ID)

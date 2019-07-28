@@ -1,50 +1,50 @@
 package com.app.daniel.app.data.converters
 
 import androidx.room.TypeConverter
-import com.app.daniel.app.data.entity.Company
-import com.app.daniel.app.data.entity.Country
-import com.app.daniel.app.data.entity.Language
+import com.app.daniel.app.data.entity.CompanyEntity
+import com.app.daniel.app.data.entity.CountryEntity
+import com.app.daniel.app.data.entity.LanguageEntity
 import com.google.gson.Gson
 
 
 class CountryConverter {
     @TypeConverter
-    fun listToJson(value: List<Country>): String {
+    fun listToJson(value: List<CountryEntity>): String {
         return Gson().toJson(value)
     }
 
     @TypeConverter
-    fun  jsonToList(value: String): List<Country> {
+    fun  jsonToList(value: String): List<CountryEntity> {
 
-        val entity = Gson().fromJson(value, Array<Country>::class.java) as Array<Country>
+        val entity = Gson().fromJson(value, Array<CountryEntity>::class.java) as Array<CountryEntity>
         return entity.toList()
     }
 }
 
 class CompanyConverter {
     @TypeConverter
-    fun listToJson(value: List<Company>): String {
+    fun listToJson(value: List<CompanyEntity>): String {
         return Gson().toJson(value)
     }
 
     @TypeConverter
-    fun  jsonToList(value: String): List<Company> {
+    fun  jsonToList(value: String): List<CompanyEntity> {
 
-        val entity = Gson().fromJson(value, Array<Company>::class.java) as Array<Company>
+        val entity = Gson().fromJson(value, Array<CompanyEntity>::class.java) as Array<CompanyEntity>
         return entity.toList()
     }
 }
 
 class LanguageConverter {
     @TypeConverter
-    fun listToJson(value: List<Language>): String {
+    fun listToJson(value: List<LanguageEntity>): String {
         return Gson().toJson(value)
     }
 
     @TypeConverter
-    fun  jsonToList(value: String): List<Language> {
+    fun  jsonToList(value: String): List<LanguageEntity> {
 
-        val entity = Gson().fromJson(value, Array<Language>::class.java) as Array<Language>
+        val entity = Gson().fromJson(value, Array<LanguageEntity>::class.java) as Array<LanguageEntity>
         return entity.toList()
     }
 }

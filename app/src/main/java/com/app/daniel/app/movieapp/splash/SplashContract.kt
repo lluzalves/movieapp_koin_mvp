@@ -9,7 +9,5 @@ interface SplashContract {
         fun startAnimation()
     }
 
-    interface SplashPresenter : MvpPresenter<SplashView> {
-        fun fetchData()
-    }
+    interface SplashPresenter : MvpPresenter<SplashView>
 }

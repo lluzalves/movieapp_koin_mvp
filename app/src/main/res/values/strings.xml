@@ -4,4 +4,9 @@
     <string name="unable_to_detect_connectivity">Unable to detect connectivity</string>
     <string name="lets_explore">Let\'s find new movies</string>
     <string name="fetching_data">Fetching movies data</string>
+    <string name="top_rated">Top Rated</string>
+    <string name="upcoming">Soon</string>
+    <string name="popular">Popular</string>
+    <string name="favorites">favorites</string>
+    <string name="making_request">Please wait, fetching movies</string>
 </resources>
