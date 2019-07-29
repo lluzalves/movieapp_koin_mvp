@@ -5,7 +5,7 @@
 - Main libs : Room, RxAndroid, Retrofit
 - Koin Dependency injection 
 - Offline support using cache
-- Modularity [ domain, data, log, commons, app ]
+- Modularity [ domain, data, commons, app ]
 
 # To do improvements
 - Improve offline feature associated with Room
