@@ -59,6 +59,11 @@ class PopularMoviesFragment : BaseFragment<MoviesContract.MoviePresenter>(), Mov
         moviesRecycler.visibility = View.GONE
     }
 
+    override fun onStop() {
+        page = 1
+        super.onStop()
+    }
+
     override fun onCompleteState() {
         if (page <= 1) {
             staggeredGridLayoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)

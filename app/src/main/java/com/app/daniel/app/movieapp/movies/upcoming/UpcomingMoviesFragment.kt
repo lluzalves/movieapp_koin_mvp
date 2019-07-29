@@ -53,6 +53,11 @@ class UpcomingMoviesFragment : BaseFragment<MoviesContract.MoviePresenter>(), Mo
         }
     }
 
+    override fun onStop() {
+        page = 1
+        super.onStop()
+    }
+
     override fun onLoadingState() {
         state_message.text = getString(R.string.making_request)
         progressLayout.visibility = View.VISIBLE
@@ -61,7 +66,7 @@ class UpcomingMoviesFragment : BaseFragment<MoviesContract.MoviePresenter>(), Mo
 
     override fun onCompleteState() {
         if (page <= 1) {
-            staggeredGridLayoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+            staggeredGridLayoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
             moviesRecycler.layoutManager = staggeredGridLayoutManager
             staggeredGridLayoutManager.gapStrategy = StaggeredGridLayoutManager.GAP_HANDLING_NONE
             registerForContextMenu(moviesRecycler)

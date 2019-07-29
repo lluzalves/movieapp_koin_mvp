@@ -61,7 +61,7 @@ class TopMoviesFragment : BaseFragment<MoviesContract.MoviePresenter>(), MoviesC
 
     override fun onCompleteState() {
         if (page <= 1) {
-            staggeredGridLayoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+            staggeredGridLayoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL)
             moviesRecycler.layoutManager = staggeredGridLayoutManager
             staggeredGridLayoutManager.gapStrategy = StaggeredGridLayoutManager.GAP_HANDLING_NONE
             registerForContextMenu(moviesRecycler)
@@ -73,6 +73,10 @@ class TopMoviesFragment : BaseFragment<MoviesContract.MoviePresenter>(), MoviesC
         addRecyclerViewOnScrollListener()
     }
 
+    override fun onStop() {
+        page = 1
+        super.onStop()
+    }
     private fun addRecyclerViewOnScrollListener() {
         moviesRecycler.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
