@@ -8,10 +8,10 @@ import com.google.gson.annotations.SerializedName
 data class CreditEntity(
     @PrimaryKey
     @SerializedName(ID)
-    var id : Int,
+    var id : Int?,
 
     @SerializedName(CAST)
-    var cast : String
+    var cast : String?
 ) {
     companion object{
         const val ENTITY_NAME = "credit"

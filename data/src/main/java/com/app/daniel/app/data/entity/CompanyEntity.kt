@@ -7,18 +7,18 @@ import com.google.gson.annotations.SerializedName
 @Entity(tableName = CompanyEntity.ENTITY_NAME)
 data class CompanyEntity(
     @SerializedName(DESCRIPTION)
-    val description: String,
+    val description: String?,
     @SerializedName(HQ)
-    val headquarters: String,
+    val headquarters: String?,
     @PrimaryKey
     @SerializedName(ID)
     val id: String,
     @SerializedName(NAME)
-    val name: String,
+    val name: String?,
     @SerializedName(LOGO_PTH)
-    val logo_path: String,
+    val logo_path: String?,
     @SerializedName(PARENT_COMPANY)
-    val parent_company: String
+    val parent_company: String?
 ) {
     companion object {
         const val ENTITY_NAME = "company"

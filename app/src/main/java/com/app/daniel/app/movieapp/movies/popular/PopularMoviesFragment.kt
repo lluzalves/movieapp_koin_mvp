@@ -1,4 +1,4 @@
-package com.app.daniel.app.movieapp.movies
+package com.app.daniel.app.movieapp.movies.popular
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,15 +7,18 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.app.daniel.app.domain.dto.Movie
+import com.app.daniel.app.domain.usecases.MovieRequestType
 import com.app.daniel.app.movieapp.R
 import com.app.daniel.app.movieapp.base.BaseFragment
+import com.app.daniel.app.movieapp.movies.MoviesAdapter
+import com.app.daniel.app.movieapp.movies.MoviesContract
 import kotlinx.android.synthetic.main.app_bar.*
 import kotlinx.android.synthetic.main.fragment_movies.*
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
 
 
-class MoviesFragment : BaseFragment<MoviesContract.MoviePresenter>(), MoviesContract.MoviesView {
+class PopularMoviesFragment : BaseFragment<MoviesContract.MoviePresenter>(), MoviesContract.MoviesView {
 
     override val presenter: MoviesContract.MoviePresenter  by inject { parametersOf(this) }
     private lateinit var movies: MutableList<Movie>
@@ -34,7 +37,7 @@ class MoviesFragment : BaseFragment<MoviesContract.MoviePresenter>(), MoviesCont
     }
 
     override fun onStartView() {
-        presenter.fetchPopularMovies(page)
+        presenter.fetchPopularMovies(page,MovieRequestType.POPULAR)
     }
 
     override fun onLayoutItemsChangeOrientation() {
@@ -84,7 +87,7 @@ class MoviesFragment : BaseFragment<MoviesContract.MoviePresenter>(), MoviesCont
                 if (visibleItemCount + pastItems >= totalItemCount && firstVisibleItems!!.size >= 0) {
                     recyclerView.removeOnScrollListener(this)
                     page += 1
-                    presenter.fetchPopularMovies(page)
+                    presenter.fetchPopularMovies(page,MovieRequestType.POPULAR)
                 }
             }
         })

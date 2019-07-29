@@ -14,10 +14,10 @@ data class LanguageEntity(
     var id: Long = System.currentTimeMillis(),
 
     @SerializedName(ISO)
-    val iso: String,
+    val iso: String?,
 
     @SerializedName(NAME)
-    val name: String
+    val name: String?
 ) {
     companion object {
         const val ENTITY_NAME = "language"

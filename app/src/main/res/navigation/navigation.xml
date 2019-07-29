@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/navigation" app:startDestination="@id/moviesFragment">
+            android:id="@+id/navigation"
+            app:startDestination="@id/popularMoviesFragment">
 
-    <fragment android:id="@+id/moviesFragment" android:name="com.app.daniel.app.movieapp.movies.MoviesFragment"
-              android:label="MoviesFragment"/>
+    <fragment android:id="@+id/popularMoviesFragment"
+              android:name="com.app.daniel.app.movieapp.movies.popular.PopularMoviesFragment"
+              android:label="PopularMoviesFragment"/>
+    <fragment android:id="@+id/upcomingMoviesFragment"
+              android:name="com.app.daniel.app.movieapp.movies.upcoming.UpcomingMoviesFragment"
+              android:label="UpcomingMoviesFragment"/>
+    <fragment android:id="@+id/topMoviesFragment" android:name="com.app.daniel.app.movieapp.movies.toprated.TopMoviesFragment"
+              android:label="TopMoviesFragment"/>
+    <fragment android:id="@+id/movieDetailsFragment"
+              android:name="com.app.daniel.app.movieapp.movies.details.MovieDetailsFragment"
+              android:label="MovieDetailsFragment"/>
 </navigation>

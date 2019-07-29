@@ -1,5 +1,7 @@
 package com.app.daniel.app.domain.dto
 
+import java.io.Serializable
+
 data class Movie(
     val id: Int,
     val title: String?,
@@ -17,4 +19,4 @@ data class Movie(
     val languages: List<Language>?,
     val genres: List<Int>?,
     val status: Boolean?
-)
+) : Serializable

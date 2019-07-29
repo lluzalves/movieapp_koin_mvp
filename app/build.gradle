@@ -8,7 +8,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.app.daniel.app.movieapp"
-        minSdkVersion 22
+        minSdkVersion 23
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -34,6 +34,9 @@ dependencies {
     api project(':commons')
     api project(':data')
     api project(':domain')
+    implementation 'com.github.fondesa:kpermissions:1.0.0'
+    implementation 'com.afollestad.material-dialogs:bottomsheets:3.1.0'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     testImplementation 'junit:junit:4.12'
 }

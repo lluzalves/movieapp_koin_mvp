@@ -1,6 +1,7 @@
 package com.app.daniel.app.movieapp.movies
 
 import com.app.daniel.app.domain.dto.Movie
+import com.app.daniel.app.domain.usecases.MovieRequestType
 import com.app.daniel.app.movieapp.base.BaseMovieView
 import com.app.daniel.app.movieapp.base.MvpPresenter
 
@@ -12,6 +13,6 @@ interface MoviesContract {
     }
 
     interface MoviePresenter : MvpPresenter<MoviesView> {
-        fun fetchPopularMovies(page: Int)
+        fun fetchPopularMovies(page: Int, typeRequestType: MovieRequestType)
     }
 }

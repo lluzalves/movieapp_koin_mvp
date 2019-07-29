@@ -18,7 +18,7 @@ class NetworkFactory : INetworkFactory, KoinComponent {
 
     private val context: Context by inject()
 
-    private val cacheLimitSize = (8 * 1024 * 1024).toLong()
+    private val cacheLimitSize = (25 * 1024 * 1024).toLong()//25mb
     private val applicationCache = Cache(context.cacheDir, cacheLimitSize)
     private val interceptor : Interceptor =   HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
 

@@ -16,7 +16,7 @@ class OnMoviesRequestUseCase : UseCase<Movie>(), KoinComponent {
     }
 
 
-    fun onRequest(page: Int, requestType: MovieRequestType): Single<List<Movie>> {
+    fun onRequestedMovies(page: Int, requestType: MovieRequestType): Single<List<Movie>> {
         return when (requestType) {
             POPULAR -> {
                 repository.fetchPopularMovies(requestedEndpointPage = page)
@@ -31,4 +31,7 @@ class OnMoviesRequestUseCase : UseCase<Movie>(), KoinComponent {
         }
     }
 
+    fun onRequestedMovieDetails(id: String): Single<Movie> {
+        return repository.retrieveById(id)
+    }
 }
