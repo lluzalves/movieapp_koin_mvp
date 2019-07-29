@@ -4,6 +4,7 @@
 - Kotlin Language
 - Main libs : Room, RxAndroid, Retrofit
 - Koin Dependency injection 
+- Offline support using cache
 - Modularity [ domain, data, log, commons, app ]
 
 # To do improvements
