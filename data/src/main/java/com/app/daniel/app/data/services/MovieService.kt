@@ -2,7 +2,6 @@ package com.app.daniel.app.data.services
 
 import com.app.daniel.app.data.entity.MovieEntity
 import com.app.daniel.app.data.services.MovieApiUrls.Params.API_KEY
-import com.app.daniel.app.data.services.MovieApiUrls.Params.MOVIE
 import com.app.daniel.app.data.services.MovieApiUrls.Params.MOVIE_ID
 import com.app.daniel.app.data.services.MovieApiUrls.Urls.MOVIE_DETAILS
 import com.app.daniel.app.data.services.MovieApiUrls.Urls.POPULAR_MOVIES

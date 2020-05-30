@@ -29,7 +29,6 @@ class CompanyConverter {
 
     @TypeConverter
     fun  jsonToList(value: String): List<CompanyEntity> {
-
         val entity = Gson().fromJson(value, Array<CompanyEntity>::class.java) as Array<CompanyEntity>
         return entity.toList()
     }

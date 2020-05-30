@@ -8,13 +8,14 @@ import com.app.daniel.app.movieapp.di.domainModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
+import org.koin.core.logger.Level
 
 class MovieApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
         startKoin {
-            androidLogger()
+            androidLogger(Level.DEBUG)
             // declare used Android context
             androidContext(this@MovieApp)
             // declare modules

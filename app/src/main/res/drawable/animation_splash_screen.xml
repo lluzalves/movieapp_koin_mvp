@@ -3,12 +3,12 @@
                 android:id="@+id/animation_list_splash"
                 android:oneshot="false">
     <item
-            android:drawable="@drawable/ic_videocam"
+            android:drawable="@drawable/ic_access_time"
             android:duration="450" />
     <item
-            android:drawable="@drawable/ic_subscriptions"
+            android:drawable="@drawable/ic_arrow_back"
             android:duration="450" />
     <item
-            android:drawable="@drawable/ic_play_circle"
+            android:drawable="@drawable/ic_date"
             android:duration="450" />
 </animation-list>

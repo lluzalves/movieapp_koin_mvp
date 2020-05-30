@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.app.daniel.app.data.services.MovieApiUrls
 import com.app.daniel.app.domain.dto.Movie
 import com.app.daniel.app.movieapp.R
 import com.app.daniel.app.movieapp.base.BaseFragment
@@ -14,7 +13,7 @@ import kotlinx.android.synthetic.main.fragment_details_movie.*
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
 
-
+const val PICTURE_PATH = "https://image.tmdb.org/t/p/w500/"
 class MovieDetailsFragment : BaseFragment<MovieDetailsContract.MovieDetailsPresenter>(),
     MovieDetailsContract.MovieDetailsView {
 
@@ -42,7 +41,7 @@ class MovieDetailsFragment : BaseFragment<MovieDetailsContract.MovieDetailsPrese
 
     private fun updateUi(movie: Movie) {
         Picasso.with(context)
-            .load(MovieApiUrls.MovieApi.PICTURE_PATH + movie.posterPath)
+            .load(PICTURE_PATH + movie.posterPath)
             .into(movieView)
         movieName.text = movie.title
         movieDescription.text = movie.overview.orEmpty()

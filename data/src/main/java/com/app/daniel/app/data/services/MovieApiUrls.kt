@@ -3,7 +3,6 @@ package com.app.daniel.app.data.services
 import com.app.daniel.app.data.services.MovieApiUrls.Params.API_KEY
 import com.app.daniel.app.data.services.MovieApiUrls.Params.INCLUDE_ADULT_CONTENT
 import com.app.daniel.app.data.services.MovieApiUrls.Params.MOVIE
-import com.app.daniel.app.data.services.MovieApiUrls.Params.MOVIE_ID
 import com.app.daniel.app.data.services.MovieApiUrls.Params.MOVIE_ID_FOR_URL
 import com.app.daniel.app.data.services.MovieApiUrls.Params.POPULAR
 import com.app.daniel.app.data.services.MovieApiUrls.Params.REQUESTED_PAGE

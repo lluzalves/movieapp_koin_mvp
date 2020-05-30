@@ -7,9 +7,8 @@ import io.reactivex.Single
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 
-class OnMoviesRequestUseCase : UseCase<Movie>(), KoinComponent {
-
-    private val repository: MoviesRepository by inject()
+class OnMoviesRequestUseCase constructor(private val repository: MoviesRepository) :
+    UseCase<Movie>(), KoinComponent {
 
     override fun buildUseCase(): Single<List<Movie>> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.

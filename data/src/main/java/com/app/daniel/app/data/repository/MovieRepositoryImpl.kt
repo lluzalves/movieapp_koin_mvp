@@ -7,13 +7,9 @@ import com.app.daniel.app.data.services.MovieService
 import com.app.daniel.app.domain.dto.Movie
 import com.app.daniel.app.domain.repository.MoviesRepository
 import io.reactivex.Single
-import org.koin.core.KoinComponent
-import org.koin.core.inject
 
 
-class MovieRepositoryImpl : MoviesRepository, KoinComponent {
-
-    private val movieService: MovieService by inject()
+class MovieRepositoryImpl constructor(private val movieService: MovieService) : MoviesRepository {
 
     override fun fetchPopularMovies(requestedEndpointPage: Int): Single<List<Movie>> {
         return movieService
@@ -21,7 +17,11 @@ class MovieRepositoryImpl : MoviesRepository, KoinComponent {
             .applyScheduler()
             .map { response ->
                 val movies = ArrayList<Movie>()
-                return@map response.result.mapTo(destination = movies) { movieEntity -> MovieAdapter.toMovie(movieEntity) }
+                return@map response.result.mapTo(destination = movies) { movieEntity ->
+                    MovieAdapter.toMovie(
+                        movieEntity
+                    )
+                }
             }
     }
 
@@ -31,7 +31,11 @@ class MovieRepositoryImpl : MoviesRepository, KoinComponent {
             .applyScheduler()
             .map { response ->
                 val movies = ArrayList<Movie>()
-                return@map response.result.mapTo(destination = movies) { movieEntity -> MovieAdapter.toMovie(movieEntity) }
+                return@map response.result.mapTo(destination = movies) { movieEntity ->
+                    MovieAdapter.toMovie(
+                        movieEntity
+                    )
+                }
             }
     }
 
@@ -41,7 +45,11 @@ class MovieRepositoryImpl : MoviesRepository, KoinComponent {
             .applyScheduler()
             .map { response ->
                 val movies = ArrayList<Movie>()
-                return@map response.result.mapTo(destination = movies) { movieEntity -> MovieAdapter.toMovie(movieEntity) }
+                return@map response.result.mapTo(destination = movies) { movieEntity ->
+                    MovieAdapter.toMovie(
+                        movieEntity
+                    )
+                }
             }
     }
 
