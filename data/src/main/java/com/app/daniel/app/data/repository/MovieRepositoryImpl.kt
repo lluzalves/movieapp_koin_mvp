@@ -30,8 +30,7 @@ class MovieRepositoryImpl constructor(private val movieService: MovieService) : 
             .upComingMovies(MovieApiUrls.Urls.buildMovieRequestUrl(page = requestedEndpointPage))
             .applyScheduler()
             .map { response ->
-                val movies = ArrayList<Movie>()
-                return@map response.result.mapTo(destination = movies) { movieEntity ->
+                return@map response.result.mapTo(destination = ArrayList()) { movieEntity ->
                     MovieAdapter.toMovie(
                         movieEntity
                     )
